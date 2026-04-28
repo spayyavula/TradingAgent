@@ -28,8 +28,8 @@ echo ">>> Project: ${PROJECT_ID}  Region: ${REGION}"
 echo ">>> Building API image: ${API_IMAGE}"
 gcloud builds submit \
   --project "${PROJECT_ID}" \
-  --tag "${API_IMAGE}" \
-  --file Dockerfile.api \
+  --config cloudbuild.api.yaml \
+  --substitutions "_IMAGE=${API_IMAGE}" \
   .
 
 echo ">>> Deploying API service: ${API_SERVICE}"
