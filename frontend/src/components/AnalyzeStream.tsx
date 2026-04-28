@@ -30,7 +30,7 @@ export function AnalyzeStream({ runId, initial }: Props) {
   const [final, setFinal] = useState(initial.final);
   const [error, setError] = useState<string | null>(initial.error);
   const sourceRef = useRef<EventSource | null>(null);
-  const bottomRef = useRef<HTMLDivElement | null>(null);
+  const bottomRef = useRef<HTMLLIElement | null>(null);
   const [orderOpen, setOrderOpen] = useState(false);
 
   useEffect(() => {
