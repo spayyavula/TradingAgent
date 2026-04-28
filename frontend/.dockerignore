@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+.turbo
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+.git
+.vscode
+.idea
+.DS_Store
+Dockerfile
+.dockerignore
+README.md

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+    "Helvetica Neue", "Inter", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+
+  --color-accent-blue: #0a84ff;
+  --color-accent-green: #30d158;
+  --color-accent-red: #ff453a;
+  --color-accent-orange: #ff9f0a;
+  --color-accent-yellow: #ffd60a;
+  --color-accent-purple: #bf5af2;
+  --color-accent-indigo: #5e5ce6;
+
+  --radius-card: 1rem;
+  --radius-tile: 1.25rem;
+}
+
+:root {
+  /* Light mode — system grays */
+  --bg-base: #f2f2f7;
+  --bg-elevated: #ffffff;
+  --bg-grouped: #f9f9fb;
+  --bg-chrome: rgba(255, 255, 255, 0.72);
+  --separator: rgba(60, 60, 67, 0.12);
+  --separator-strong: rgba(60, 60, 67, 0.24);
+  --label: #1c1c1e;
+  --label-secondary: rgba(60, 60, 67, 0.7);
+  --label-tertiary: rgba(60, 60, 67, 0.5);
+  --label-quaternary: rgba(60, 60, 67, 0.3);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -12px rgba(0, 0, 0, 0.08);
+  --tint: #007aff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-base: #000000;
+    --bg-elevated: #1c1c1e;
+    --bg-grouped: #2c2c2e;
+    --bg-chrome: rgba(28, 28, 30, 0.72);
+    --separator: rgba(84, 84, 88, 0.32);
+    --separator-strong: rgba(84, 84, 88, 0.6);
+    --label: #f5f5f7;
+    --label-secondary: rgba(235, 235, 245, 0.62);
+    --label-tertiary: rgba(235, 235, 245, 0.36);
+    --label-quaternary: rgba(235, 235, 245, 0.18);
+    --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.5);
+    --tint: #0a84ff;
+  }
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--bg-base);
+    color: var(--label);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "ss01", "cv11";
+    letter-spacing: -0.011em;
+  }
+
+  ::selection {
+    background: color-mix(in oklch, var(--tint) 30%, transparent);
+  }
+}
+
+@layer utilities {
+  .surface-card {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--separator);
+  }
+
+  .surface-tile {
+    background: var(--bg-elevated);
+    border-radius: var(--radius-tile);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--separator);
+  }
+
+  .chrome-blur {
+    background: var(--bg-chrome);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid var(--separator);
+  }
+
+  .text-label {
+    color: var(--label);
+  }
+  .text-label-secondary {
+    color: var(--label-secondary);
+  }
+  .text-label-tertiary {
+    color: var(--label-tertiary);
+  }
+
+  .divider {
+    height: 1px;
+    background: var(--separator);
+  }
+
+  .focus-ring {
+    outline: 2px solid color-mix(in oklch, var(--tint) 60%, transparent);
+    outline-offset: 2px;
+  }
+}

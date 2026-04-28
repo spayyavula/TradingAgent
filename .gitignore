@@ -149,6 +149,8 @@ activemq-data/
 
 # Environments
 .env
+.env.local
+.env.*.local
 .envrc
 .venv
 env/
@@ -156,6 +158,17 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# Claude Code workspace
+.claude/
+
+# Node / Next.js
+node_modules/
+.next/
+out/
+.turbo/
+.auth-data/
+*.tsbuildinfo
 
 # Spyder project settings
 .spyderproject
